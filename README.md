@@ -1,13 +1,4 @@
-# sheep-solver
-羊了个羊模拟使用道具解题，无聊写着玩的
-
-参考项目
-
-https://github.com/BugMaker888/sheep
-
-https://github.com/NB-Dragon/SheepSolver
-
-https://github.com/AdamYoung1234/SheepASheepV2
+在https://github.com/bc0042/sheep-solver的基础上新增了map解析
 
 
 ## 用法
