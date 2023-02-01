@@ -45,7 +45,11 @@ if (url) {
                 for (const i in mapData.levelData) {
                     let nodeList =  mapData.levelData[i].node
                     for (let j = 0; j < nodeList.length; j++) {
-                        nodeList[j].type = 0;
+                        if(!nodeList[j].type) nodeList[j].type = 0;
+                        if(!nodeList[j].rolNum) nodeList[j].rolNum = 0;
+                        if(!nodeList[j].rowNum) nodeList[j].rowNum = 0;
+                        if(!nodeList[j].layerNum) nodeList[j].layerNum = 0;
+                        if(!nodeList[j].moldType) nodeList[j].moldType = 0;
                     }
                     l[i] = nodeList;
                 }
@@ -77,23 +81,4 @@ if (url) {
             console.log(e)
         })
     }
-}
-
-
-function toUint8Arr(str) {
-    const buffer = [];
-    for (let i of str) {
-        const _code = i.charCodeAt(0);
-        if (_code < 0x80) {
-            buffer.push(_code);
-        } else if (_code < 0x800) {
-            buffer.push(0xc0 + (_code >> 6));
-            buffer.push(0x80 + (_code & 0x3f));
-        } else if (_code < 0x10000) {
-            buffer.push(0xe0 + (_code >> 12));
-            buffer.push(0x80 + (_code >> 6 & 0x3f));
-            buffer.push(0x80 + (_code & 0x3f));
-        }
-    }
-    return Uint8Array.from(buffer);
 }
